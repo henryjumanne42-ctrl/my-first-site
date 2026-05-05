@@ -1,145 +1,162 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Henry Magesa | Portfolio</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Henry Magesa | Portfolio</title>
 
-  <!-- Google Font -->
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 
-  <style>
-    :root{
-      --bg:#0f172a;
-      --card:#1e293b;
-      --accent:#38bdf8;
-      --accent2:#6366f1;
-      --text:#e2e8f0;
-    }
+<style>
+:root{
+  --bg:#0f172a;
+  --card:#1e293b;
+  --accent:#38bdf8;
+  --accent2:#6366f1;
+  --text:#e2e8f0;
+}
 
-    *{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif}
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif}
 
-    body{
-      background: var(--bg);
-      color: var(--text);
-      line-height:1.6;
-    }
+html{
+  scroll-behavior:smooth;
+}
 
-    /* NAVBAR */
-    nav{
-      position:sticky;
-      top:0;
-      background: rgba(15,23,42,0.9);
-      backdrop-filter: blur(10px);
-      padding:15px 40px;
-      display:flex;
-      justify-content:space-between;
-      align-items:center;
-      z-index:1000;
-    }
+body{
+  background:var(--bg);
+  color:var(--text);
+}
 
-    nav h2{
-      color:var(--accent);
-    }
+/* NAV */
+nav{
+  position:sticky;
+  top:0;
+  display:flex;
+  justify-content:space-between;
+  padding:15px 40px;
+  background:rgba(15,23,42,0.9);
+  backdrop-filter:blur(10px);
+}
 
-    nav a{
-      color:white;
-      text-decoration:none;
-      margin-left:20px;
-      transition:0.3s;
-    }
+nav a{
+  color:white;
+  margin-left:20px;
+  text-decoration:none;
+}
 
-    nav a:hover{
-      color:var(--accent);
-    }
+nav a:hover{color:var(--accent)}
 
-    /* HERO */
-    .hero{
-      height:90vh;
-      display:flex;
-      flex-direction:column;
-      justify-content:center;
-      align-items:center;
-      text-align:center;
-      background: linear-gradient(135deg,#0f172a,#1e293b);
-    }
+/* HERO */
+.hero{
+  height:90vh;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+}
 
-    .hero h1{
-      font-size:50px;
-      background: linear-gradient(to right,#38bdf8,#6366f1);
-      -webkit-background-clip:text;
-      color:transparent;
-    }
+.hero img{
+  width:120px;
+  border-radius:50%;
+  margin-bottom:20px;
+  animation:fadeIn 1s ease;
+}
 
-    .hero p{
-      margin:15px 0;
-      font-size:18px;
-      opacity:0.8;
-    }
+.hero h1{
+  font-size:48px;
+  background:linear-gradient(to right,#38bdf8,#6366f1);
+  -webkit-background-clip:text;
+  color:transparent;
+  animation:fadeUp 1s ease;
+}
 
-    .btn{
-      padding:12px 25px;
-      background:linear-gradient(45deg,#38bdf8,#6366f1);
-      border:none;
-      border-radius:30px;
-      color:white;
-      cursor:pointer;
-      transition:0.3s;
-    }
+.hero p{
+  margin:15px 0;
+  opacity:0.8;
+  animation:fadeUp 1.5s ease;
+}
 
-    .btn:hover{
-      transform:scale(1.05);
-    }
+.btn{
+  padding:12px 25px;
+  border:none;
+  border-radius:30px;
+  background:linear-gradient(45deg,#38bdf8,#6366f1);
+  color:white;
+  cursor:pointer;
+  transition:0.3s;
+}
 
-    section{
-      max-width:1000px;
-      margin:auto;
-      padding:60px 20px;
-    }
+.btn:hover{
+  transform:scale(1.1);
+}
 
-    h2{
-      text-align:center;
-      margin-bottom:30px;
-      color:var(--accent);
-    }
+/* SECTION */
+section{
+  max-width:1000px;
+  margin:auto;
+  padding:60px 20px;
+}
 
-    /* CARDS */
-    .grid{
-      display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-      gap:20px;
-    }
+h2{
+  text-align:center;
+  margin-bottom:30px;
+  color:var(--accent);
+}
 
-    .card{
-      background:var(--card);
-      padding:20px;
-      border-radius:15px;
-      transition:0.3s;
-    }
+/* GRID */
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  gap:20px;
+}
 
-    .card:hover{
-      transform:translateY(-10px);
-      box-shadow:0 10px 30px rgba(0,0,0,0.5);
-    }
+/* CARD */
+.card{
+  background:var(--card);
+  padding:20px;
+  border-radius:15px;
+  transition:0.3s;
+  opacity:0;
+  transform:translateY(40px);
+}
 
-    /* CONTACT */
-    .contact{
-      text-align:center;
-    }
+.card.show{
+  opacity:1;
+  transform:translateY(0);
+  transition:0.6s ease;
+}
 
-    footer{
-      text-align:center;
-      padding:20px;
-      background:#020617;
-      font-size:14px;
-      opacity:0.6;
-    }
-  </style>
+.card:hover{
+  transform:translateY(-10px);
+}
+
+/* LINKS */
+a{
+  color:var(--accent);
+}
+
+footer{
+  text-align:center;
+  padding:20px;
+  background:#020617;
+}
+
+/* ANIMATIONS */
+@keyframes fadeIn{
+  from{opacity:0}
+  to{opacity:1}
+}
+
+@keyframes fadeUp{
+  from{opacity:0;transform:translateY(30px)}
+  to{opacity:1;transform:translateY(0)}
+}
+</style>
 </head>
 
 <body>
 
-<!-- NAVBAR -->
 <nav>
   <h2>Henry</h2>
   <div>
@@ -150,58 +167,72 @@
   </div>
 </nav>
 
-<!-- HERO -->
 <div class="hero">
+  <img src="profile.jpg">
   <h1>Henry Magesa</h1>
   <p>Information Systems Student | Web & Cloud Developer</p>
-  <button class="btn">View My Work</button>
+  <a href="Henry_Magesa_CV.pdf" download class="btn">Download CV</a>
 </div>
 
-<!-- ABOUT -->
 <section id="about">
   <h2>About Me</h2>
   <p style="text-align:center;">
     I build modern web applications and explore cloud technologies like AWS and Railway.
-    Passionate about solving real-world problems using technology.
   </p>
 </section>
 
-<!-- SKILLS -->
 <section id="skills">
   <h2>Skills</h2>
   <div class="grid">
-    <div class="card">HTML, CSS, JavaScript</div>
-    <div class="card">Node.js, PHP</div>
-    <div class="card">MySQL Database</div>
-    <div class="card">Cloud (AWS, Railway)</div>
+    <div class="card">Frontend: HTML, CSS, JavaScript</div>
+    <div class="card">Backend: Node.js, PHP</div>
+    <div class="card">Database: MySQL</div>
+    <div class="card">Cloud: AWS, Railway</div>
   </div>
 </section>
 
-<!-- PROJECTS -->
 <section id="projects">
   <h2>Projects</h2>
   <div class="grid">
     <div class="card">
       <h3>Portfolio Website</h3>
-      <p>Modern personal website deployed on Railway.</p>
+      <p>Deployed on Railway.</p>
+      <a href="https://your-app.up.railway.app" target="_blank">Live Demo</a>
     </div>
 
     <div class="card">
       <h3>AI Reporting System</h3>
-      <p>Real-time business intelligence system.</p>
+      <p>Real-time data analysis system.</p>
+      <a href="#">View Project</a>
     </div>
   </div>
 </section>
 
-<!-- CONTACT -->
-<section id="contact" class="contact">
+<section id="contact">
   <h2>Contact</h2>
   <p>Email: your@email.com</p>
+  <p>
+    <a href="https://github.com/USERNAME">GitHub</a> |
+    <a href="https://linkedin.com/in/USERNAME">LinkedIn</a>
+  </p>
 </section>
 
 <footer>
   © 2026 Henry Magesa
 </footer>
+
+<script>
+const cards = document.querySelectorAll('.card');
+
+window.addEventListener('scroll', () => {
+  cards.forEach(card => {
+    const top = card.getBoundingClientRect().top;
+    if(top < window.innerHeight - 100){
+      card.classList.add('show');
+    }
+  });
+});
+</script>
 
 </body>
 </html>
